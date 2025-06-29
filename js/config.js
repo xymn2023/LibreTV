@@ -115,70 +115,76 @@ const API_SITES = {
         name: '空内容测试源',
         adult: true
     },
+    // 下面是一些成人内容的API源，默认隐藏，使用本项目浏览黄色内容违背项目初衷
+    // 互联网上传播的色情内容将人彻底客体化、工具化，是性别解放和人类平等道路上的巨大障碍。
+    // 这些黄色影片是资本主义父权制压迫的最恶毒体现，它将暴力和屈辱商品化，践踏人的尊严，对受害者造成无法弥愈的伤害，并毒害社会关系。
+    // 资本为了利润，不惜将最卑劣的剥削（包括对受害者和表演者的剥削）和暴力商品化，
+    // 把性别剥削塑造成“性享受”麻痹观众的意识，转移我们对现实生活中矛盾和压迫的注意力。
+    // 这些影片和背后的产业已经使数百万男女“下海”，出卖自己的身体，甚至以此为生计。
+    // 而作为观众无辜吗？毫无疑问，他们促成了黄色产业链的再生产。
+    // 我们提供此警告，是希望您能认清这些内容的本质——它们是压迫和奴役的工具，而非娱乐。
     ckzy: {
-        api: 'https://www.ckzy1.com',
-        name: 'CK资源',
-        adult: true
-    },
-    jkun: {
-        api: 'https://jkunzyapi.com',
-        name: 'jkun资源',
-        adult: true
-    },
-    bwzy: {
-        api: 'https://api.bwzym3u8.com',
-        name: '百万资源',
-        adult: true
-    },
-    souav: {
-        api: 'https://api.souavzy.vip',
+         api: 'https://www.ckzy1.com',
+         name: 'CK资源',
+         adult: true
+     },
+     jkun: {
+         api: 'https://jkunzyapi.com',
+         name: 'jkun资源',
+         adult: true
+     },
+     bwzy: {
+         api: 'https://api.bwzym3u8.com',
+         name: '百万资源',
+         adult: true
+     },
+     souav: {
+         api: 'https://api.souavzy.vip',
         name: 'souav资源',
-        adult: true
+         adult: true
+     },
+     r155: {
+         api: 'https://155api.com',
+         name: '155资源',
+         adult: true
+     },
+     lsb: {
+         api: 'https://apilsbzy1.com',
+         name: 'lsb资源',
+         adult: true
+     },
+     huangcang: {
+         api: 'https://hsckzy.vip',
+         name: '黄色仓库',
+         adult: true,
+         detail: 'https://hsckzy.vip'
+     },
+     yutu: {
+         api: 'https://yutuzy10.com',
+         name: '玉兔资源',
+         adult: true
     },
-    r155: {
-        api: 'https://155api.com',
-        name: '155资源',
-        adult: true
-    },
-    lsb: {
-        api: 'https://apilsbzy1.com',
-        name: 'lsb资源',
-        adult: true
-    },
-    huangcang: {
-        api: 'https://hsckzy.vip',
-        name: '黄色仓库',
-        adult: true,
-        detail: 'https://hsckzy.vip'
-    },
-    yutu: {
-        api: 'https://yutuzy10.com',
-        name: '玉兔资源',
-        adult: true
-    },
-    naixi: {
-        api: 'https://naixxzy.com/api.php/provide/vod',
-        name: '奶昔资源'
-    },
-    155zy: {
-        api: 'https://155api.com/api.php/provide/vod',
-        name: '155资源'
-    },
-    slzy: {
-        api: 'https://slapibf.com/api.php/provide/vod',
-        name: '森林资源'
-    },
-    askzy: {
-        api: 'https://aosikazy.com/api.php/provide/vod',
-        name: '奥斯卡资源'
-    }
+
+    // 下面是资源失效率高的API源，不建议使用
+     subo: {
+         api: 'https://subocaiji.com/api.php/provide/vod',
+         name: '速播资源'
+     },
+     fczy: {
+         api: 'https://api.fczy888.me/api.php/provide/vod',
+         name: '蜂巢资源'
+     },
+     ukzy: {
+         api: 'https://api.ukuapi88.com/api.php/provide/vod',
+         name: 'U酷资源'
+     },
 };
 
 // 添加聚合搜索的配置选项
 const AGGREGATED_SEARCH_CONFIG = {
     enabled: true,             // 是否启用聚合搜索
     timeout: 8000,            // 单个源超时时间（毫秒）
-    maxResults: 1000000,          // 最大结果数量
+    maxResults: 10000,          // 最大结果数量
     parallelRequests: true,   // 是否并行请求所有源
     showSourceBadges: true    // 是否显示来源徽章
 };
@@ -189,7 +195,7 @@ const API_CONFIG = {
         // 只拼接参数部分，不再包含 /api.php/provide/vod/
         path: '?ac=videolist&wd=',
         pagePath: '?ac=videolist&wd={query}&pg={page}',
-        maxPages: 50000, // 最大获取页数
+        maxPages: 50, // 最大获取页数
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
             'Accept': 'application/json'
@@ -237,7 +243,7 @@ const ERROR_MESSAGES = {
 const SECURITY_CONFIG = {
     enableXSSProtection: true,  // 是否启用XSS保护
     sanitizeUrls: true,         // 是否清理URL
-    maxQueryLength: 1000,        // 最大搜索长度
+    maxQueryLength: 100,        // 最大搜索长度
     // allowedApiDomains 不再需要，因为所有请求都通过内部代理
 };
 
@@ -249,7 +255,7 @@ const CUSTOM_API_CONFIG = {
     namePrefix: 'Custom-',    // 自定义源名称前缀
     validateUrl: true,        // 验证URL格式
     cacheResults: true,       // 缓存测试结果
-    cacheExpiry: 15184000000,  // 缓存过期时间(2个月)
+    cacheExpiry: 5184000000,  // 缓存过期时间(2个月)
     adultPropName: 'isAdult' // 用于标记成人内容的属性名
 };
 
