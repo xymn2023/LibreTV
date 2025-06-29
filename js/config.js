@@ -110,9 +110,9 @@ const API_SITES = {
         api: 'https://ikunzyapi.com/api.php/provide/vod',
         name: 'iKun资源'
     },
-    testSource: {
-        api: 'https://www.example.com/api.php/provide/vod',
-        name: '空内容测试源',
+    slzy: {
+        api: 'https://slapibf.com/api.php/provide/vod',
+        name: '森林资源',
         adult: true
     },
     // 下面是一些成人内容的API源，默认隐藏，使用本项目浏览黄色内容违背项目初衷
@@ -148,9 +148,9 @@ const API_SITES = {
          name: '155资源',
          adult: true
      },
-     lsb: {
-         api: 'https://apilsbzy1.com',
-         name: 'lsb资源',
+     nxzy: {
+         api: 'https://naixxzy.com/api.php/provide/vod',
+         name: '奶香资源',
          adult: true
      },
      huangcang: {
@@ -159,9 +159,9 @@ const API_SITES = {
          adult: true,
          detail: 'https://hsckzy.vip'
      },
-     yutu: {
-         api: 'https://yutuzy10.com',
-         name: '玉兔资源',
+     aska: {
+         api: 'https://aosikazy.com/api.php/provide/vod',
+         name: '奥斯卡资源',
          adult: true
     },
 
