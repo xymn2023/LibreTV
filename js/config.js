@@ -179,7 +179,7 @@ const API_SITES = {
 const AGGREGATED_SEARCH_CONFIG = {
     enabled: true,             // 是否启用聚合搜索
     timeout: 8000,            // 单个源超时时间（毫秒）
-    maxResults: 1000000,          // 最大结果数量
+    maxResults: 10000,          // 最大结果数量
     parallelRequests: true,   // 是否并行请求所有源
     showSourceBadges: true    // 是否显示来源徽章
 };
@@ -190,7 +190,7 @@ const API_CONFIG = {
         // 只拼接参数部分，不再包含 /api.php/provide/vod/
         path: '?ac=videolist&wd=',
         pagePath: '?ac=videolist&wd={query}&pg={page}',
-        maxPages: 50000, // 最大获取页数
+        maxPages: 5000, // 最大获取页数
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
             'Accept': 'application/json'
@@ -238,7 +238,7 @@ const ERROR_MESSAGES = {
 const SECURITY_CONFIG = {
     enableXSSProtection: true,  // 是否启用XSS保护
     sanitizeUrls: true,         // 是否清理URL
-    maxQueryLength: 1000,        // 最大搜索长度
+    maxQueryLength: 100,        // 最大搜索长度
     // allowedApiDomains 不再需要，因为所有请求都通过内部代理
 };
 
@@ -250,7 +250,7 @@ const CUSTOM_API_CONFIG = {
     namePrefix: 'Custom-',    // 自定义源名称前缀
     validateUrl: true,        // 验证URL格式
     cacheResults: true,       // 缓存测试结果
-    cacheExpiry: 15184000000,  // 缓存过期时间(2个月)
+    cacheExpiry: 5184000000,  // 缓存过期时间(2个月)
     adultPropName: 'isAdult' // 用于标记成人内容的属性名
 };
 
