@@ -39,10 +39,10 @@ const API_SITES = {
         api: 'https://tyyszy.com/api.php/provide/vod',
         name: '天涯资源',
     },
-    // xiaomaomi: {
-    //     api: 'https://zy.xiaomaomi.cc/api.php/provide/vod',
-    //     name: '小猫咪资源',
-    // },
+     xiaomaomi: {
+         api: 'https://zy.xiaomaomi.cc/api.php/provide/vod',
+         name: '小猫咪资源',
+     },
     ffzy: {
         api: 'http://ffzy5.tv/api.php/provide/vod',
         name: '非凡影视',
@@ -116,70 +116,69 @@ const API_SITES = {
         adult: true
     },
     ckzy: {
-         api: 'https://www.ckzy1.com',
-         name: 'CK资源',
-         adult: true
-     },
+        api: 'https://www.ckzy1.com',
+        name: 'CK资源',
+        adult: true
+    },
     jkun: {
-         api: 'https://jkunzyapi.com',
-         name: 'jkun资源',
-         adult: true
-     },
+        api: 'https://jkunzyapi.com',
+        name: 'jkun资源',
+        adult: true
+    },
     bwzy: {
-         api: 'https://api.bwzym3u8.com',
-         name: '百万资源',
-         adult: true
-     },
+        api: 'https://api.bwzym3u8.com',
+        name: '百万资源',
+        adult: true
+    },
     souav: {
-         api: 'https://api.souavzy.vip',
-         name: 'souav资源',
-         adult: true
-     },
+        api: 'https://api.souavzy.vip',
+        name: 'souav资源',
+        adult: true
+    },
     r155: {
-         api: 'https://155api.com',
-         name: '155资源',
-         adult: true
-     },
+        api: 'https://155api.com',
+        name: '155资源',
+        adult: true
+    },
     lsb: {
-         api: 'https://apilsbzy1.com',
-         name: 'lsb资源',
-         adult: true
-     },
+        api: 'https://apilsbzy1.com',
+        name: 'lsb资源',
+        adult: true
+    },
     huangcang: {
-         api: 'https://hsckzy.vip',
-         name: '黄色仓库',
-         adult: true,
-         detail: 'https://hsckzy.vip'
-     },
-     yutu: {
-         api: 'https://yutuzy10.com',
-         name: '玉兔资源',
-         adult: true
-     },
-
-     naixi: {
-         api: 'https://naixxzy.com/api.php/provide/vod',
-         name: '奶昔资源'
-     },
-     155zy: {
-         api: 'https://155api.com/api.php/provide/vod',
-         name: '155资源'
-     },
-     slzy: {
-         api: 'https://slapibf.com/api.php/provide/vod',
-         name: '森林资源'
-     },
-     askzy: {
-         api: 'https://aosikazy.com/api.php/provide/vod',
-         name: '奥斯卡资源'
-     },
+        api: 'https://hsckzy.vip',
+        name: '黄色仓库',
+        adult: true,
+        detail: 'https://hsckzy.vip'
+    },
+    yutu: {
+        api: 'https://yutuzy10.com',
+        name: '玉兔资源',
+        adult: true
+    },
+    naixi: {
+        api: 'https://naixxzy.com/api.php/provide/vod',
+        name: '奶昔资源'
+    },
+    155zy: {
+        api: 'https://155api.com/api.php/provide/vod',
+        name: '155资源'
+    },
+    slzy: {
+        api: 'https://slapibf.com/api.php/provide/vod',
+        name: '森林资源'
+    },
+    askzy: {
+        api: 'https://aosikazy.com/api.php/provide/vod',
+        name: '奥斯卡资源'
+    }
 };
 
 // 添加聚合搜索的配置选项
 const AGGREGATED_SEARCH_CONFIG = {
     enabled: true,             // 是否启用聚合搜索
     timeout: 8000,            // 单个源超时时间（毫秒）
-    maxResults: 10000,          // 最大结果数量
+    maxResults: 1000000,          // 最大结果数量
     parallelRequests: true,   // 是否并行请求所有源
     showSourceBadges: true    // 是否显示来源徽章
 };
@@ -190,7 +189,7 @@ const API_CONFIG = {
         // 只拼接参数部分，不再包含 /api.php/provide/vod/
         path: '?ac=videolist&wd=',
         pagePath: '?ac=videolist&wd={query}&pg={page}',
-        maxPages: 5000, // 最大获取页数
+        maxPages: 50000, // 最大获取页数
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
             'Accept': 'application/json'
@@ -238,7 +237,7 @@ const ERROR_MESSAGES = {
 const SECURITY_CONFIG = {
     enableXSSProtection: true,  // 是否启用XSS保护
     sanitizeUrls: true,         // 是否清理URL
-    maxQueryLength: 100,        // 最大搜索长度
+    maxQueryLength: 1000,        // 最大搜索长度
     // allowedApiDomains 不再需要，因为所有请求都通过内部代理
 };
 
@@ -250,7 +249,7 @@ const CUSTOM_API_CONFIG = {
     namePrefix: 'Custom-',    // 自定义源名称前缀
     validateUrl: true,        // 验证URL格式
     cacheResults: true,       // 缓存测试结果
-    cacheExpiry: 5184000000,  // 缓存过期时间(2个月)
+    cacheExpiry: 15184000000,  // 缓存过期时间(2个月)
     adultPropName: 'isAdult' // 用于标记成人内容的属性名
 };
 
