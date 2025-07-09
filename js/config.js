@@ -103,16 +103,16 @@ const API_SITES = {
         name: '无尽资源'
     },
     wwzy: {
-        api: 'https://wwzy.tv/api.php/provide/vod',
-        name: '旺旺短剧'
+        api: 'https://hsckzy888.com/api.php/provide/vod',
+        name: '仓库短剧'
     },
     ikun: {
         api: 'https://ikunzyapi.com/api.php/provide/vod',
         name: 'iKun资源'
     },
-    testSource: {
-        api: 'https://www.example.com/api.php/provide/vod',
-        name: '空内容测试源',
+    yutu: {
+        api: 'https://apiyutu.com/api.php/providedao/vod',
+        name: '玉兔',
         adult: true
     },
     // 下面是一些成人内容的API源，默认隐藏，使用本项目浏览黄色内容违背项目初衷
@@ -154,7 +154,7 @@ const API_SITES = {
          adult: true
      },
      huangcang: {
-         api: 'https://hsckzy.vip',
+         api: 'https://hsckzy888.com/api.php/provide/vod',
          name: '黄色仓库',
          adult: true,
          detail: 'https://hsckzy.vip'
