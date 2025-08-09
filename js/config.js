@@ -7,7 +7,7 @@ const MAX_HISTORY_ITEMS = 5;
 // 密码保护配置
 const PASSWORD_CONFIG = {
     localStorageKey: 'passwordVerified',  // 存储验证状态的键名
-    verificationTTL: 1000 * 24 * 60 * 60 * 1000,  // 验证有效期（90天，约3个月）
+    verificationTTL: 90 * 24 * 60 * 60 * 1000,  // 验证有效期（90天，约3个月）
     adminLocalStorageKey: 'adminPasswordVerified'  // 新增的管理员验证状态的键名
 };
 
@@ -195,7 +195,7 @@ const API_CONFIG = {
         // 只拼接参数部分，不再包含 /api.php/provide/vod/
         path: '?ac=videolist&wd=',
         pagePath: '?ac=videolist&wd={query}&pg={page}',
-        maxPages: 5000, // 最大获取页数
+        maxPages: 50, // 最大获取页数
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
             'Accept': 'application/json'
