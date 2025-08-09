@@ -5,10 +5,10 @@ const SEARCH_HISTORY_KEY = 'videoSearchHistory';
 const MAX_HISTORY_ITEMS = 5;
 
 // 密码保护配置
-// 注意：PASSWORD 环境变量是必需的，所有部署都必须设置密码以确保安全
 const PASSWORD_CONFIG = {
     localStorageKey: 'passwordVerified',  // 存储验证状态的键名
-    verificationTTL: 90 * 24 * 60 * 60 * 1000  // 验证有效期（90天，约3个月）
+    verificationTTL: 1000 * 24 * 60 * 60 * 1000,  // 验证有效期（90天，约3个月）
+    adminLocalStorageKey: 'adminPasswordVerified'  // 新增的管理员验证状态的键名
 };
 
 // 网站信息配置
@@ -40,9 +40,9 @@ const API_SITES = {
         name: '天涯资源',
     },
     xiaomaomi: {
-        api: 'https://zy.xmm.hk/api.php/provide/vod',
-        name: '小猫咪资源',
-    },
+         api: 'https://zy.xiaomaomi.cc/api.php/provide/vod',
+         name: '小猫咪资源',
+     },
     ffzy: {
         api: 'http://ffzy5.tv/api.php/provide/vod',
         name: '非凡影视',
@@ -110,26 +110,75 @@ const API_SITES = {
         api: 'https://ikunzyapi.com/api.php/provide/vod',
         name: 'iKun资源'
     },
-    lzi: {
-        api: 'https://cj.lziapi.com/api.php/provide/vod/',
-        name: '量子资源站'
-    },
-    testSource: {
-        api: 'https://www.example.com/api.php/provide/vod',
-        name: '空内容测试源',
+    ddzy: {
+        api: 'https://api.ddapi.cc/api.php/provide/vod',
+        name: '滴滴资源',
         adult: true
     },
+    // 下面是一些成人内容的API源，默认隐藏，使用本项目浏览黄色内容违背项目初衷
+    // 互联网上传播的色情内容将人彻底客体化、工具化，是性别解放和人类平等道路上的巨大障碍。
+    // 这些黄色影片是资本主义父权制压迫的最恶毒体现，它将暴力和屈辱商品化，践踏人的尊严，对受害者造成无法弥愈的伤害，并毒害社会关系。
+    // 资本为了利润，不惜将最卑劣的剥削（包括对受害者和表演者的剥削）和暴力商品化，
+    // 把性别剥削塑造成“性享受”麻痹观众的意识，转移我们对现实生活中矛盾和压迫的注意力。
+    // 这些影片和背后的产业已经使数百万男女“下海”，出卖自己的身体，甚至以此为生计。
+    // 而作为观众无辜吗？毫无疑问，他们促成了黄色产业链的再生产。
+    // 我们提供此警告，是希望您能认清这些内容的本质——它们是压迫和奴役的工具，而非娱乐。
+    ckzy: {
+         api: 'https://www.ckzy1.com',
+         name: 'CK资源',
+         adult: true
+     },
+    jkun: {
+         api: 'https://jkunzyapi.com',
+         name: 'jkun资源',
+         adult: true
+     },
+    bwzy: {
+         api: 'https://api.bwzym3u8.com',
+         name: '百万资源',
+         adult: true
+     },
+    souav: {
+         api: 'https://api.souavzy.vip',
+         name: 'souav资源',
+         adult: true
+     },
+    r155: {
+         api: 'https://155api.com',
+         name: '155资源',
+         adult: true
+     },
+    lsb: {
+         api: 'https://apilsbzy1.com',
+         name: 'lsb资源',
+         adult: true
+     },
+    huangcang: {
+         api: 'https://hsckzy.vip',
+         name: '黄色仓库',
+         adult: true,
+         detail: 'https://hsckzy.vip'
+     },
+    yutu: {
+         api: 'https://yutuzy10.com',
+         name: '玉兔资源',
+         adult: true
+     },
+
+    // 下面是资源失效率高的API源，不建议使用
+    nxzy: {
+         api: 'https://naixxzy.com/api.php/provide/vod',
+         name: '奶香资源'
+     },
+    slzy: {
+         api: 'https://slapibf.com/api.php/provide/vod',
+         name: '森林资源'
+     },
+    asky: {
+         api: 'https://aosikazy.com/api.php/provide/vod',
+         name: '奥斯卡源'
+     },
 };
-
-// 定义合并方法
-function extendAPISites(newSites) {
-    Object.assign(API_SITES, newSites);
-}
-
-// 暴露到全局
-window.API_SITES = API_SITES;
-window.extendAPISites = extendAPISites;
-
 
 // 添加聚合搜索的配置选项
 const AGGREGATED_SEARCH_CONFIG = {
@@ -146,7 +195,7 @@ const API_CONFIG = {
         // 只拼接参数部分，不再包含 /api.php/provide/vod/
         path: '?ac=videolist&wd=',
         pagePath: '?ac=videolist&wd={query}&pg={page}',
-        maxPages: 50, // 最大获取页数
+        maxPages: 5000, // 最大获取页数
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
             'Accept': 'application/json'
